@@ -1,0 +1,62 @@
+{
+  "compilerOptions": {
+    "typeRoots": ["node_modules/npm"],
+    "module": "commonjs",
+    "target": "es5",
+    "jsx": "react-jsx",
+    "resolveJsonModule": true,
+    "forceConsistentCasingInFileNames": true,
+    "noImplicitReturns": true,
+    "noUnusedLocals": true,
+    "esModuleInterop": true,
+    "allowSyntheticDefaultImports": true,
+    "experimentalDecorators": true,
+    "strict": true,
+    "plugins": [
+      {
+        "name": "typescript-plugin-css-modules",
+        "options": {
+          "classnameTransform": "camelCaseOnly",
+        }
+      }
+    ],
+    "baseUrl": "./",
+    "paths": {
+      "@assets/*": [
+        "src/assets/*"
+      ],
+      "@components/*": [
+        "src/components/*"
+      ],
+      "@requests/*": [
+        "src/requests/*"
+      ],
+      "@stores/*": [
+        "src/stores/*"
+      ],
+      "@storybook/*": [
+        "src/storybook/*"
+      ],
+      "@hooks/*": [
+        "src/hooks/*"
+      ],
+      "@styles/*": [
+        "src/styles/*"
+      ],
+      "@utils/*": [
+        "src/utils/*"
+      ],
+      "@ui/*": [
+        "src/ui/*"
+      ],
+      "@const/*": [
+        "src/const/*"
+      ]
+    }
+  },
+  "files": ["src/index.tsx"],
+  "include": [
+    "./globals.d.ts",
+    "./theme.d.ts"
+  ]
+}

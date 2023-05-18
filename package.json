@@ -1,0 +1,108 @@
+{
+  "name": "front",
+  "version": "1.0.0",
+  "description": "",
+  "scripts": {
+    "start": "webpack serve",
+    "build": "webpack --mode=production --node-env=production",
+    "storybook": "start-storybook -p 6006 -s public",
+    "build-storybook": "build-storybook -s public",
+    "build:dev": "webpack --mode=development",
+    "build:prod": "webpack --mode=production --node-env=production",
+    "test:screenshot:test": "loki test",
+    "test:screenshot:aproove": "loki approve"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@emotion/react": "^11.10.6",
+    "@emotion/styled": "^11.10.6",
+    "@mui/icons-material": "^5.11.16",
+    "@mui/material": "^5.11.12",
+    "axios": "^0.26.0",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "react-router-dom": "^6.7.0",
+    "simplebar-react": "^3.2.0"
+  },
+  "browser": {
+    "fs": false,
+    "os": false,
+    "path": false
+  },
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
+  },
+  "devDependencies": {
+    "@storybook/addon-actions": "^6.5.16",
+    "@storybook/addon-essentials": "^7.0.6",
+    "@storybook/addon-interactions": "^6.5.16",
+    "@storybook/addon-links": "^6.5.16",
+    "@storybook/builder-webpack5": "^6.5.16",
+    "@storybook/manager-webpack5": "^6.5.16",
+    "@storybook/node-logger": "^6.5.16",
+    "@storybook/preset-create-react-app": "^1.2.0",
+    "@storybook/react": "^6.5.16",
+    "@storybook/testing-library": "^0.0.13",
+    "@types/jest": "^29.2.6",
+    "@types/node": "^18.11.18",
+    "@types/react": "^18.0.27",
+    "@types/react-dom": "^18.0.10",
+    "@webpack-cli/generators": "^3.0.1",
+    "autoprefixer": "^10.4.13",
+    "babel-plugin-named-exports-order": "^0.0.2",
+    "css-loader": "^6.7.3",
+    "html-webpack-plugin": "^5.5.0",
+    "loki": "^0.31.1",
+    "msw": "^0.49.3",
+    "msw-storybook-addon": "^1.7.0",
+    "postcss": "^8.4.21",
+    "postcss-loader": "^7.0.2",
+    "prop-types": "^15.8.1",
+    "sass": "^1.58.3",
+    "sass-loader": "^13.2.0",
+    "style-loader": "^3.3.1",
+    "ts-loader": "^9.4.2",
+    "tsconfig-paths-webpack-plugin": "^4.0.1",
+    "typescript": "^5.0.4",
+    "typescript-plugin-css-modules": "^5.0.1",
+    "webpack": "^5.76.0",
+    "webpack-cli": "^5.0.1",
+    "webpack-dev-server": "^4.11.1"
+  },
+  "eslintConfig": {
+    "overrides": [
+      {
+        "files": [
+          "**/*.stories.*"
+        ],
+        "rules": {
+          "import/no-anonymous-default-export": "off"
+        }
+      }
+    ]
+  },
+  "loki": {
+    "configurations": {
+      "chrome.laptop": {
+        "target": "chrome.docker",
+        "width": 1920,
+        "height": 950,
+        "deviceScaleFactor": 1,
+        "mobile": false
+      }
+    }
+  },
+  "msw": {
+    "workerDirectory": "public"
+  }
+}

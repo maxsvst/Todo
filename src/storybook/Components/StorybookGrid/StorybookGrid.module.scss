@@ -1,0 +1,14 @@
+.storybookGrid {
+  display: grid;
+  grid-template-columns: repeat(10, fit-content(50px));
+  grid-template-rows: repeat(10, fit-content(50px));
+  grid-auto-rows: fit-content(50px);
+  grid-gap: 1em;
+
+
+  &--test{
+    &-Super{
+      color:red;
+    }
+  }
+}

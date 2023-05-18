@@ -1,0 +1,30 @@
+@import "simplebar-react/dist/simplebar.min.css";
+
+[data-theme='light'] .simplebar-track.simplebar-vertical{
+    background: var(--track-background-light);
+}
+
+[data-theme='dark'] .simplebar-track.simplebar-vertical{
+    background: var(--track-background-dark);
+}
+
+[data-theme='light'] .simplebar-scrollbar:before{
+    background: var(--scrollbar-background-light);
+}
+
+[data-theme='dark'] .simplebar-scrollbar:before{
+    background: var(--scrollbar-background-dark);
+}
+
+.simplebar-track.simplebar-vertical{
+    width:3px;
+}
+.simplebar-scrollbar:before{
+    top: initial;
+    bottom: initial;
+    left: initial;
+    right: initial;
+    width: 100%;
+    height: 100%;
+    opacity: 1 !important;
+}
