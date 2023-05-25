@@ -1,11 +1,11 @@
-
+import TodoList from "../../components/TodoList/TodoList";
 
 const HomePage = () => {
-    return (
-        <div>
-            <div></div>
-        </div>
-    );
+  return (
+    <>
+      <TodoList />
+    </>
+  );
 };
 
 export default HomePage;
