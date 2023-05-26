@@ -17,10 +17,14 @@
   "dependencies": {
     "@emotion/react": "^11.10.6",
     "@emotion/styled": "^11.10.6",
+    "@material-ui/icons": "^4.11.3",
     "@mui/icons-material": "^5.11.16",
     "@mui/material": "^5.11.12",
+    "@mui/x-date-pickers": "^6.5.0",
+    "@natscale/react-calendar": "^0.0.0-beta.26",
     "axios": "^0.26.0",
     "react": "^18.2.0",
+    "react-calendar": "^4.2.1",
     "react-dom": "^18.2.0",
     "react-router-dom": "^6.7.0",
     "simplebar-react": "^3.2.0"

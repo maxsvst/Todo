@@ -2,16 +2,23 @@ import { useState } from "react";
 
 import Button from "@mui/material/Button";
 import TextField from "@mui/material/TextField";
+import { Checkbox } from "@mui/material";
+
+import { DeleteOutline } from "@material-ui/icons";
+
+import Calendar from "react-calendar";
 
 interface item {
   id: number;
   text: string;
   completed: boolean;
+  date?: any;
 }
 
 export default function TodoList() {
   const [todos, setTodos] = useState<item[]>([]);
   const [inputValue, setinputValue] = useState<string>("");
+  const [date, setDate] = useState<any>();
 
   const todoCompleted = (id: number) => {
     setTodos(
@@ -25,13 +32,21 @@ export default function TodoList() {
     );
   };
 
-  const handleClick = () => {
-    const newTodo: item = {
-      id: Date.now(),
-      text: inputValue,
-      completed: false,
-    };
-    setTodos([...todos, newTodo]);
+  const todoDelete = (id: number) => {
+    setTodos(todos.filter((todo) => todo.id !== id));
+  };
+
+  const addTodo = () => {
+    if (inputValue !== "") {
+      const newTodo: item = {
+        id: Date.now(),
+        text: inputValue,
+        completed: false,
+        date,
+      };
+      setTodos([...todos, newTodo]);
+      setinputValue("");
+    }
   };
 
   return (
@@ -44,17 +59,22 @@ export default function TodoList() {
       }}
     >
       <h2>Todo List</h2>
-      <ol>
+      <ul style={{ listStyle: "none" }}>
         {todos.map((todo) => (
-          <li
-            key={todo.id}
-            onClick={() => todoCompleted(todo.id)}
-            style={{ textDecoration: todo.completed ? "line-through" : "none" }}
-          >
-            {todo.text}
-          </li>
+          <div style={{ display: "flex" }}>
+            <Checkbox onClick={() => todoCompleted(todo.id)} />
+            <li
+              key={todo.id}
+              style={{
+                textDecoration: todo.completed ? "line-through" : "none",
+              }}
+            >
+              {todo.text + " " + JSON.stringify(date)}
+            </li>
+            <DeleteOutline onClick={() => todoDelete(todo.id)} />
+          </div>
         ))}
-      </ol>
+      </ul>
       <TextField
         type="text"
         value={inputValue}
@@ -65,11 +85,12 @@ export default function TodoList() {
       <Button
         variant="outlined"
         type="button"
-        onClick={handleClick}
+        onClick={addTodo}
         sx={{ height: "50px", width: "200px", marginTop: "10px" }}
       >
         Add todo
       </Button>
+      <Calendar value={date} onChange={(value) => setDate(value)} />
     </div>
   );
 }
