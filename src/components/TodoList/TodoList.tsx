@@ -61,17 +61,20 @@ export default function TodoList() {
       <h2>Todo List</h2>
       <ul style={{ listStyle: "none" }}>
         {todos.map((todo) => (
-          <div style={{ display: "flex" }}>
+          <div key={todo.id} style={{ display: "flex" }}>
             <Checkbox onClick={() => todoCompleted(todo.id)} />
             <li
-              key={todo.id}
+              key={todo.id + 1}
               style={{
                 textDecoration: todo.completed ? "line-through" : "none",
               }}
             >
               {todo.text + " " + JSON.stringify(date)}
             </li>
-            <DeleteOutline onClick={() => todoDelete(todo.id)} />
+            <DeleteOutline
+              key={todo.id + 2}
+              onClick={() => todoDelete(todo.id)}
+            />
           </div>
         ))}
       </ul>
